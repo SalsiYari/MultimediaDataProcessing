@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(204,20): warning C4267: 'argomento': conversione da 'size_t' a '_Ty'. Possibile perdita di dati.
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(204,20): warning C4267:         with
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(204,20): warning C4267:         [
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(204,20): warning C4267:             _Ty=int
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(204,20): warning C4267:         ]
+C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\main.cpp(178,19): warning C4930: 'std::vector<int,std::allocator<int>> numbers(std::istream_iterator<int,char,std::char_traits<char>,ptrdiff_t>,std::istream_iterator<int,char,std::char_traits<char>,ptrdiff_t> (__cdecl *)(void))': funzione con prototipo non chiamata. Si intendeva utilizzare una definizione di variabile?
+  generalKnowlwdge.vcxproj -> C:\Users\asdunimore\Desktop\MultiM_gennaio\generalKnowlwdge\x64\Debug\generalKnowlwdge.exe
