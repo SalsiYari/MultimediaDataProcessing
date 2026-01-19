@@ -1,11 +1,3 @@
-//==========================================================================================================
-/*
-THIS FILE IS NOT EXECUTABLE, IT ONLY CONTAINS A LIST OF CONCEPTS IN ITALIAN ADDRESSED DURING THE COURSE.
-THE EXERCISES CAN BE FOUND IN THE OTHER FOLDERS
-*/
-//==========================================================================================================
-
-
 //questo progetto fa riferimento alla cartella esperimenti nel desktop
 
 #include <algorithm>
@@ -428,5 +420,7 @@ int main(int argc, char* argv[])
 	}
 
 	return EXIT_SUCCESS;
-
 }
+
+
+C'è DA CAPIRE QUELLO E FARE IL BITREADER 
