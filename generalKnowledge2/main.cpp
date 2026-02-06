@@ -137,7 +137,8 @@ void readingMethods(std::istream& is_) {
     is_.read(buffer, 100); 
 
     // to read inside a non-char variable --> reinterpret_cast
-    std::cout << "Bytes read: " << is_.gcount() << std::endl; 
+    std::cout << "Bytes read: " << is_.gcount() << std::endl;     
+    
 }
 
 //===============================================================================================================================================
@@ -180,6 +181,26 @@ void writingMethods(std::ostream& os_) {
     os_.write(reinterpret_cast<const char*>(&d), sizeof(d));
 }
 
+//## HOW TO READ LITTLE ENDIAN BYTE ##
+template <typename T>
+std::ifstream& readLittleEndian(std::ifstream& is, T& val, size_t n) {
+    val = 0;
+    uint8_t byte;
+
+    // loop to count from 0 to n-1
+    for (size_t i = 0; i < n; i++) {
+        is.get(reinterpret_cast<char&>(byte));
+        
+        // 1. static_cast<T>(byte):      convert byte into final type
+        // 2. << (i * 8):                move to left of 0, 8, 16, 24 bit...
+        // 3. |= : Uniamo i bit al risultato
+        val |= (static_cast<T>(byte) << (i * 8));
+    }
+    return is;
+}
+
+
+
 int main(int argc, char* argv[]) {
 
     // Esempio rapido per provare il codice senza file binari
@@ -211,4 +232,27 @@ int main(int argc, char* argv[]) {
 
     std::cout << " \n\n end \n\n";
     return EXIT_SUCCESS;
+
 }
+
+
+
+/*
+NOTE:
+a template class such as 
+template<typename T>
+class mat {
+	int rows_ = 0, cols_ = 0;
+	std::vector<T> data_;
+public:
+	mat() {}
+    .....
+
+MUST BE ISTANTIATE with TYPE AS:
+mat<uint8_t> m(10, 20);            //example in which <uint8_t> is shown
+                                    //mat is a template , mat<uint32_t> is a class (different from mat<uint8_t>
+
+
+
+
+*/
