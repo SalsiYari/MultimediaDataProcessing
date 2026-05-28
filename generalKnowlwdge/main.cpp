@@ -177,7 +177,17 @@ int main(int argc, char* argv[]) {
 	/* iostream_iterator*/
 	std::vector<int> numbers{ std::istream_iterator<int>(is), std::istream_iterator<int>() };		//to put file value into vector (input) {} are allowed to say "we are not making a function
 	/* ostream_iterator */
-	std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, ", "));			//to print 
+	std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, ", "));						//to print 
+	// !! iostream_iterator<>(is) uses the ">>" operator to extract data that skips white spaces ecc. to avoiding this std::iostreambuf_iterator reads directly over row buffer
+	std::vector<uint8_t> vett((std::iostreambuf_iterator<uint8_t>(is) , std::iostreambuf_iterator<uint8_t>());
+	// BUT iterators are efficent at all since they reallocate the vector every time they need  it to insert all datas. a vector pre-allocation method is:
+	is.seekg(0 , std::ios::end);
+	std::streamsize size = is.tellg();
+	is.seekg(0, std::ios::beg);
+	std::vector<uint8_t> vett(size);
+	is.read(reinterpret_cast<char*>(vett.data()) , size); 
+
+
 	
 			//i.e.: copying empty vector ERROR
 	std::vector<int> sorgente = { 1, 2, 3 };
